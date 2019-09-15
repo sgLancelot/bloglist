@@ -1,0 +1,33 @@
+{
+  "name": "bloglist",
+  "version": "0.0.1",
+  "description": "Part 3 exercise for fullstackopen2019 @ fullstackopen.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgLancelot/bloglist.git"
+  },
+  "author": "tzhenkai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgLancelot/bloglist/issues"
+  },
+  "homepage": "https://github.com/sgLancelot/bloglist#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "nodemon": "^1.19.2"
+  }
+}
