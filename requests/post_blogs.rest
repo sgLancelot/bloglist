@@ -2,8 +2,8 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-  "title": "MainlyMiles",
-  "author": "unknown",
-  "url": "mainlymiles.com",
-  "likes": "333"
+  "title": "Full Stack Open 2018",
+  "author": "mlukkai",
+  "url": "fullstackopen.com",
+  "likes": "2018"
 }
