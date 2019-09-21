@@ -1,3 +1,15 @@
+/* Use the supertest package for writing a test that makes an HTTP GET
+ request to the /api/blogs url. Verify that the blog list application 
+ returns the correct amount of blog posts in the JSON format.
+ 
+ Once the test is finished, refactor the route handler to use the 
+ async/await syntax instead of promises.
+
+ Notice that you will have to make similar changes to the code that 
+ were made in the material, like defining the test environment so 
+ that you can write tests that use their own separate database.
+ */
+
 const dummy = (blogs) => {
     return 1
 }
