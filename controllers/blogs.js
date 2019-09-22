@@ -9,6 +9,8 @@ blogRouter.get('', async (request, response) => {
 blogRouter.post('', async (request, response) => {
     if (!request.body.likes) {
         request.body.likes = 0
+    } else if (!request.body.url && !request.body.title) {
+        return response.status(400).send({error: 'Bad Request'})
     }
     const blog = new Blog(request.body)
   
