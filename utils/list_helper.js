@@ -1,13 +1,11 @@
-/* Use the supertest package for writing a test that makes an HTTP GET
- request to the /api/blogs url. Verify that the blog list application 
- returns the correct amount of blog posts in the JSON format.
- 
- Once the test is finished, refactor the route handler to use the 
- async/await syntax instead of promises.
+/* Write a test that verifies that the unique identifier property of 
+the blog posts is named id, by default the database names the property 
+_id. Verifying the existence of a property is easily done with Jest's 
+toBeDefined matcher:
 
- Notice that you will have to make similar changes to the code that 
- were made in the material, like defining the test environment so 
- that you can write tests that use their own separate database.
+Make the required changes to the code so that it passes the test. The 
+toJSON method discussed in part 3 is an appropriate place for defining 
+the id parameter.
  */
 
 const dummy = (blogs) => {
