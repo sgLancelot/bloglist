@@ -85,6 +85,40 @@ test('if title and url missing, responsds with status 400.', async () => {
       .expect(400)
 })
 
+test('test deleting a blog', async () => {
+    const newBlog = {
+      title: "Second class tests",
+      author: "Robert D. Martin",
+      url: "www.google.com",
+      likes: 8,
+    }
+
+    await api
+      .post('/api/blogs')
+      .send(newBlog)
+      .expect(201)
+
+    const response = await api.get('/api/blogs')
+    const newPostedBlog = await response.body.find(x => x.title === 'Second class tests')
+    await api
+      .delete(`/api/blogs/${newPostedBlog.id}`)
+      .expect(204)
+})
+
+test('test functionality for updating info of individual blog post', async () => {
+    const updatedBlog = {likes: 78}
+
+    const response = await api.get('/api/blogs')
+    const newPostedBlog = await response.body.find(x => x.title === 'React patterns')
+    await api
+      .put(`/api/blogs/${newPostedBlog.id}`)
+      .send(updatedBlog)
+
+    const updatedResponse = await api.get('/api/blogs')
+    const updatedPostedBlog = await updatedResponse.body.find(x => x.title === 'React patterns')
+    expect(updatedPostedBlog.likes).toBe(78)
+})
+
 afterAll(() => {
     mongoose.connection.close()
 })
