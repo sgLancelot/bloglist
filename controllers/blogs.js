@@ -19,7 +19,7 @@ blogRouter.post('', async (request, response) => {
 })
 
 blogRouter.delete('/:id', async (request, response) => {
-    await Blog.findByIdAndRemove(request.params.id)
+    await Blog.findByIdAndRemove(request.params.id, {useFindAndModify: false})
     response.status(204).end()
 })
 
