@@ -39,6 +39,13 @@ const initialBlogs = [
     }
 ]
 
+const testUser1 = {
+    username: 'testuser1',
+    name: 'testname1',
+    password: 'testpassword1'
+}
+
 module.exports = {
-    initialBlogs
+    initialBlogs,
+    testUser1
 }
