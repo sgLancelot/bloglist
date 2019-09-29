@@ -1,9 +1,10 @@
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMiIsImlkIjoiNWQ4ZTRjMzkzMjA2OWIyMTAwZDk4NGVkIiwiaWF0IjoxNTY5NzMyOTM2fQ.VsWS1uKkb_B8mUpjsACGI1CDuyNHRpHUir4e4LIp-LU
 
 {
-  "title": "Elon Musk",
-  "author": "andy",
-  "url": "tesla.com",
-  "likes": "2015"
+  "title": "fantasyfootballscout",
+  "author": "FFScout",
+  "url": "fantasyfootballscout.co.uk",
+  "likes": "2001"
 }
