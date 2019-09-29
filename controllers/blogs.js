@@ -9,7 +9,7 @@ blogRouter.get('', async (request, response) => {
 })
   
 blogRouter.post('', async (request, response, next) => {
-    const body = request.bod
+    const body = request.body
 
     if (!body.likes) {
         body.likes = 0
@@ -43,9 +43,23 @@ blogRouter.post('', async (request, response, next) => {
     
 })
 
-blogRouter.delete('/:id', async (request, response) => {
-    await Blog.findByIdAndRemove(request.params.id, {useFindAndModify: false})
-    response.status(204).end()
+blogRouter.delete('/:id', async (request, response, next) => {
+    try {
+        const decodedToken = jwt.verify(request.token, process.env.SECRET)
+        if (!request.token || !decodedToken.id) {
+            return response.status(401).json({error: 'token missing or invalid'})
+        }
+        
+        const blog = await Blog.findById(request.params.id)
+
+        if (blog.user.toString() === decodedToken.id.toString()) {
+            await Blog.findByIdAndDelete(request.params.id)
+            return response.status(204).end()
+        }
+        response.status(401).json({error: 'you cant delete this note! note dont belong to you!'})
+    } catch (exception) {
+        next(exception)
+    }
 })
 
 blogRouter.put('/:id', async (request, response) => {
